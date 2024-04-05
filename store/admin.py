@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book,Student
+from .models import Book,Student,Author
 
 class BookAdmin(admin.ModelAdmin):
     prepopulated_fields={"slug":("title",)}
@@ -10,3 +10,5 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Book,BookAdmin)
 
 admin.site.register(Student)
+
+admin.site.register(Author)
