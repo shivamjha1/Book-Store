@@ -2,10 +2,15 @@ from django.db import models
 from django.core.validators import MaxValueValidator,MinValueValidator
 from django.utils.text import slugify
 # Create your models here.
+
+class Author(models.Model):
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50)
+    
 class Book(models.Model):
     title=models.CharField(max_length=50)
     rating=models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(5)])
-    author=models.CharField(max_length=50,null=True)
+    author=models.ForeignKey(Author,on_delete=models.CASCADE, null=True)
     is_bestselling=models.BooleanField(default=True)
     slug=models.SlugField(default="",blank=True, null=False,db_index=True)#harry-potter
 
