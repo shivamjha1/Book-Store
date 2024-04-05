@@ -12,3 +12,5 @@ def book_detail(request,slug):
     return render(request,"store/book_detail.html",{
          "book":book
     })
+def student_detail(request):
+    pass
