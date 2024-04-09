@@ -3,10 +3,21 @@ from django.core.validators import MaxValueValidator,MinValueValidator
 from django.utils.text import slugify
 # Create your models here.
 
+class Address(models.Model):
+    street=models.CharField(max_length=50)
+    city=models.CharField(max_length=50)
+    pincode=models.IntegerField()
+    
+    def address(self):
+        return f"{self.street},{self.city}"
+    def __str__(self) -> str:
+        return self.address()
+    
+    
 class Author(models.Model):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
-    
+    address=models.OneToOneField(Address,on_delete=models.CASCADE,null=True)
     def full_name(self):
     
         return f"{self.first_name} {self.last_name}"
