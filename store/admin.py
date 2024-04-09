@@ -17,5 +17,4 @@ admin.site.register(Student)
 
 admin.site.register(Author,AuthorAdmin)
 
-
 admin.site.register(Address)

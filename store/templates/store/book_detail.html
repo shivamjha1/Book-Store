@@ -3,6 +3,7 @@
 {% block content %}<center>
 <h1>{{book.title}}</h1>
 <h2>written by{{book.author}}<br>
+who lives in {{book.author.address}}<br>
 and has a rating of {{book.rating}}<br>
 {% if book.is_bestselling %}
 and is a bestseller
